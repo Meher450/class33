@@ -93,8 +93,10 @@ function mouseReleased(){
 }
 
 function keyPressed(){
-    if(keyCode === 32){
-       slingshot.attach(bird.body);
+    if(keyCode === 32) {
+        bird.trajectory = [] ;
+        Matter.Body.setPosition(bird.body, {x:200, y:50});
+        slingshot.attach(bird.body);
     }
 }
 
@@ -108,10 +110,10 @@ async function getBackgroundImg(){
     if(hour>=0600 && hour<=1900){
         bg = "sprites/bg1.png";
     }
-    else{
+    else {
         bg = "sprites/bg2.jpg";
-    }
 
     backgroundImg = loadImage(bg);
     console.log(backgroundImg);
+    }
 }
